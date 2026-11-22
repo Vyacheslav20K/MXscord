@@ -54,7 +54,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "dev.mantikafasi.manticord"
+        applicationId = "com.mxscord.gvs"
         minSdk = 23
         targetSdk = 36
         versionCode = updateVersionCode
@@ -152,10 +152,10 @@ androidComponents {
     // run on a daily-use device without touching that install's data. Their package is not in
     // google-services.json, so they build as a checkout without Firebase config does.
     onVariants(selector().withBuildType("nonMinifiedRelease")) { variant ->
-        variant.applicationId.set("dev.mantikafasi.manticord.benchmark")
+        variant.applicationId.set("com.mxscord.gvs.benchmark")
     }
     onVariants(selector().withBuildType("benchmarkRelease")) { variant ->
-        variant.applicationId.set("dev.mantikafasi.manticord.benchmark")
+        variant.applicationId.set("com.mxscord.gvs.benchmark")
     }
     onVariants(selector().withBuildType("release")) { variant ->
         val apkDirectory = variant.artifacts.get(SingleArtifact.APK)
@@ -189,7 +189,7 @@ androidComponents {
                 require(apk.parentFile == directory && apk.name == "app-universal-release.apk" && apk.isFile) {
                     "Expected exactly one produced app-universal-release.apk"
                 }
-                require(artifacts.applicationId == "dev.mantikafasi.manticord" &&
+                require(artifacts.applicationId == "com.mxscord.gvs" &&
                     output.versionCode == expectedVersionCode && !output.versionName.isNullOrBlank()) {
                     "Release APK metadata does not match this build"
                 }
@@ -305,5 +305,3 @@ dependencies {
     baselineProfile(project(":baselineprofile"))
     //debugImplementation(libs.leakcanary)
 }
-
-
